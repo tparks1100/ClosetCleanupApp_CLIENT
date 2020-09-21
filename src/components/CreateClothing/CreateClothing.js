@@ -7,15 +7,26 @@ import Button from 'react-bootstrap/Button'
 // import apiUrl from '../../apiConfig'
 import { createClothing } from '../../api/clothing'
 import messages from '../AutoDismissAlert/messages'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const CreateClothing = ({ msgAlert, user }) => {
-  const [clothing, setClothing] = useState({ category: '', clothingDescription: '', isWorn: false, status: 'Pending' })
+  const [clothing, setClothing] = useState({ todaysDate: '', category: '', clothingDescription: '', isWorn: false, status: 'Pending' })
   const [createdClothingId, setCreatedClothingId] = useState(null)
 
   const handleChange = event => {
     event.persist()
     setClothing(prevClothing => {
       const updatedField = { [event.target.name]: event.target.value }
+      const editedClothing = Object.assign({}, prevClothing, updatedField)
+      return editedClothing
+    })
+  }
+
+  const handleDateChange = date => {
+    setClothing(prevClothing => {
+      const updatedField = { todaysDate: date }
       const editedClothing = Object.assign({}, prevClothing, updatedField)
       return editedClothing
     })
@@ -56,6 +67,14 @@ const CreateClothing = ({ msgAlert, user }) => {
       <div className="col-sm-10 col-md-8 mx-auto mt-5">
         <h3>Add New Clothing Item</h3>
         <Form onSubmit={handleSubmit}>
+          <Form.Group controlId="todaysDate">
+            <DatePicker
+              selected={clothing.todaysDate}
+              onChange={handleDateChange}
+              name="todaysDate"
+              dateFormat="MM/dd/yyyy"
+            />
+          </Form.Group>
           <Form.Group controlId="category" onChange={handleChange} value={clothing.category}>
             <Form.Label>Category: </Form.Label>
             <Form.Control as="select" custom name="category" defaultValue={clothing.category}>

@@ -92,23 +92,23 @@ const UpdateClothing = ({ msgAlert, user, match }) => {
               dateFormat="MM/dd/yyyy"
             />
           </Form.Group>
-          <Form.Group controlId="category" onChange={handleChange} value={clothing.category}>
+          <Form.Group controlId="category">
             <Form.Label>Category: </Form.Label>
-            <Form.Control as="select" custom name="category" defaultValue={clothing.category}>
+            <Form.Control as="select" custom name="category" value={clothing.category} onChange={handleChange}>
               <option value="" disabled hidden>Select clothing category</option>
-              <option value="accessories">Accessories</option>
-              <option value="tshirt">T-Shirt</option>
-              <option value="blouse">Blouse</option>
-              <option value="jeans">Jeans</option>
-              <option value="pants">Pants</option>
-              <option value="shorts">Shorts</option>
-              <option value="jacket">Jacket</option>
-              <option value="sweater">Sweater</option>
-              <option value="pullover">Pullover</option>
-              <option value="longsleeve">Longsleeve T-Shirt</option>
-              <option value="buttonup">Button Up</option>
-              <option value="dress">Dress</option>
-              <option value="shoes">Shoes</option>
+              <option value="Accessories">Accessories</option>
+              <option value="T-Shirt">T-Shirt</option>
+              <option value="Blouse">Blouse</option>
+              <option value="Jeans">Jeans</option>
+              <option value="Pants">Pants</option>
+              <option value="Shorts">Shorts</option>
+              <option value="Jacket">Jacket</option>
+              <option value="Sweater">Sweater</option>
+              <option value="Pullover">Pullover</option>
+              <option value="Longsleeve">Longsleeve T-Shirt</option>
+              <option value="Buttonup">Button Up</option>
+              <option value="Dress">Dress</option>
+              <option value="Shoes">Shoes</option>
             </Form.Control>
           </Form.Group>
           <Form.Group controlId="clothingDescription">
@@ -124,12 +124,12 @@ const UpdateClothing = ({ msgAlert, user, match }) => {
               onChange={handleChange}
             />
           </Form.Group>
-          <Form.Group id="formGridCheckbox" onChange={handleCheckbox}>
-            <Form.Check name="isWorn" type="checkbox" label="Worn?" value={clothing.isWorn} />
+          <Form.Group id="formGridCheckbox">
+            <Form.Check onChange={handleCheckbox} name="isWorn" type="checkbox" label="Worn?" value={clothing.isWorn} checked={clothing.isWorn} />
           </Form.Group>
-          <Form.Group controlId="status" onChange={handleChange}>
+          <Form.Group controlId="status">
             <Form.Label>Status: </Form.Label>
-            <Form.Control as="select" custom name="status" defaultValue={clothing.status}>
+            <Form.Control as="select" custom name="status" value={clothing.status} onChange={handleChange}>
               <option value="" disabled hidden>Select Status</option>
               <option value="Pending">Pending</option>
               <option value="Sell">Sell</option>

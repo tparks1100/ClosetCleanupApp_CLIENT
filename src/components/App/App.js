@@ -10,6 +10,8 @@ import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 import Clothes from '../Clothes/Clothes'
 import CreateClothing from '../CreateClothing/CreateClothing'
+import Home from '../Home/Home'
+import UpdateClothing from '../UpdateClothing/UpdateClothing'
 
 class App extends Component {
   constructor () {
@@ -44,6 +46,7 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <Route exact path='/' component={Home} />
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
@@ -61,6 +64,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/new-clothing' render={() => (
             <CreateClothing msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/update-clothing/:id' render={() => (
+            <UpdateClothing msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>

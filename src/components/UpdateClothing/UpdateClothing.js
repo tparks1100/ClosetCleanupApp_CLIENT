@@ -1,16 +1,19 @@
-import React, { useState } from 'react'
-import { Redirect } from 'react-router-dom'
-// import axios from 'axios'
-import Form from 'react-bootstrap/Form'
-// import InputGroup from 'react-bootstrap/InputGroup'
-import Button from 'react-bootstrap/Button'
-// import apiUrl from '../../apiConfig'
-import { createClothing } from '../../api/clothing'
+import React, { useState, useEffect } from 'react'
+import { Redirect, Link, withRouter } from 'react-router-dom'
 import messages from '../AutoDismissAlert/messages'
+import { updateClothing, showClothing } from '../../api/clothing'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
-const CreateClothing = ({ msgAlert, user }) => {
+const UpdateClothing = ({ msgAlert, user, match }) => {
   const [clothing, setClothing] = useState({ category: '', clothingDescription: '', isWorn: false, status: 'Pending' })
-  const [createdClothingId, setCreatedClothingId] = useState(null)
+  const [updated, setUpdated] = useState(false)
+
+  useEffect(() => {
+    showClothing(user, match.params.id)
+      .then(res => setClothing(res.data.clothing))
+      .catch(console.error)
+  }, [])
 
   const handleChange = event => {
     event.persist()
@@ -29,32 +32,32 @@ const CreateClothing = ({ msgAlert, user }) => {
       setClothing({ ...clothing, isWorn: false })
     }
   }
+
   const handleSubmit = event => {
     event.preventDefault()
-    console.log(clothing)
-    // const msgAlert = this.props
-    createClothing(user, clothing)
-      .then(res => setCreatedClothingId(res.data.clothing._id))
+    console.log(event)
+    updateClothing(user, clothing, match.params.id)
+      .then(() => setUpdated({ updated: true }))
       .then(() => msgAlert({
-        heading: 'Create New Clothing Item Success',
-        message: messages.createClothingSuccess,
+        heading: 'Update Item Success',
+        message: messages.updateClothingSuccess,
         variant: 'success'
       }))
       .catch(() => msgAlert({
-        heading: 'Failed To Create New Clothing Item: ',
-        message: messages.createClothingFailure,
+        heading: 'Failed To Update Item',
+        message: messages.updateClothingFailure,
         variant: 'danger'
       }))
   }
 
-  if (createdClothingId) {
+  if (updated) {
     return <Redirect to='/clothes' />
   }
 
   return (
     <div className="row">
       <div className="col-sm-10 col-md-8 mx-auto mt-5">
-        <h3>Add New Clothing Item</h3>
+        <h3>Update Item</h3>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="category" onChange={handleChange} value={clothing.category}>
             <Form.Label>Category: </Form.Label>
@@ -100,11 +103,14 @@ const CreateClothing = ({ msgAlert, user }) => {
               <option value="Donate">Donate</option>
             </Form.Control>
           </Form.Group>
-          <Button style={{ backgroundColor: '#d8d3cd', borderColor: '#797a7e', color: '#797a7e' }} type="submit">Add New Item to My Closet</Button>
+          <Button style={{ backgroundColor: '#d8d3cd', borderColor: '#797a7e', color: '#797a7e', borderRadius: '25px', margin: '10px' }} type="submit">Update</Button>
+          <Link to='/clothes'>
+            <Button style={{ backgroundColor: '#d8d3cd', borderColor: '#797a7e', color: '#797a7e', borderRadius: '25px', margin: '10px' }}>Cancel</Button>
+          </Link>
         </Form>
       </div>
     </div>
   )
 }
 
-export default CreateClothing
+export default withRouter(UpdateClothing)

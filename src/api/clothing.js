@@ -13,33 +13,34 @@ export const createClothing = (user, clothing) => {
   })
 }
 
-// export const viewPosts = (user, devpost) => {
-//   return axios({
-//     url: apiUrl + '/devposts',
-//     method: 'GET',
-//     headers: {
-//       'Authorization': `Bearer ${user.token}`
-//     }
-//   })
-// }
-//
-// export const showPost = (user, devpost, id) => {
-//   return axios({
-//     url: apiUrl + `/devposts/${id}`,
-//     method: 'GET',
-//     headers: {
-//       'Authorization': `Bearer ${user.token}`
-//     }
-//   })
-// }
-//
-// export const updatePost = (user, devpost, id) => {
-//   return axios({
-//     url: `${apiUrl}/devposts/${id}`,
-//     method: 'PATCH',
-//     data: { devpost },
-//     headers: {
-//       'Authorization': `Bearer ${user.token}`
-//     }
-//   })
-// }
+export const viewClothes = (user, clothes) => {
+  return axios({
+    url: apiUrl + '/clothes',
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    }
+  })
+}
+
+export const showClothing = (user, id) => {
+  return axios({
+    url: apiUrl + `/clothes/${id}`,
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    }
+  })
+}
+
+export const updateClothing = (user, clothing, id) => {
+  console.log('this is updates id', id)
+  return axios({
+    url: `${apiUrl}/clothes/${id}`,
+    method: 'PATCH',
+    data: { clothing },
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    }
+  })
+}

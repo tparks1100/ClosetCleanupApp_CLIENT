@@ -1,0 +1,4 @@
+:local(.navbarBackground) {
+  position: relative;
+  background: radial-gradient(circle, rgba(121,122,126,1) 0%, rgba(224,236,228,1) 68%);
+}

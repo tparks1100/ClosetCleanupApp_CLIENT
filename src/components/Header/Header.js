@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
+import styles from './Header.css'
 
 const authenticatedOptions = (
   <Fragment>
@@ -25,7 +26,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg="primary" variant="dark" expand="md">
+  <Navbar className={styles.navbarBackground} variant="light" expand="md">
     <Navbar.Brand href="#">
       ClosetCleanup
     </Navbar.Brand>

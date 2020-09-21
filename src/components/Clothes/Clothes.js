@@ -10,6 +10,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCol, MDBIcon } from 'mdbreact'
+import styles from '../Header/Header.css'
 
 const Clothes = ({ msgAlert, user, match }) => {
   const [clothes, setClothes] = useState([])
@@ -52,7 +53,7 @@ const Clothes = ({ msgAlert, user, match }) => {
             <MDBCol col='4'>
               <MDBCard wide>
                 <MDBCardImage
-                  className='view view-cascade gradient-card-header peach-gradient'
+                  className= {styles.navbarBackground}
                   cascade
                   tag='div'
                 >

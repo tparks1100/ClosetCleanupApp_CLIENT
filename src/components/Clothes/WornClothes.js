@@ -11,7 +11,7 @@ import styles from '../Header/Header.css'
 import moment from 'moment'
 import Nav from 'react-bootstrap/Nav'
 
-const Clothes = ({ msgAlert, user, match }) => {
+const WornClothes = ({ msgAlert, user, match }) => {
   const [clothes, setClothes] = useState([])
   // const [worn, setWorn] = useState(false)
   const [deleted, setDeleted] = useState(false)
@@ -47,7 +47,7 @@ const Clothes = ({ msgAlert, user, match }) => {
   // clothesToRender = (clothes.filter(clothing => clothing.isWorn === true).map(clothing => {
   let clothesToRender
   if (clothes) {
-    clothesToRender = clothes.map(clothing => {
+    clothesToRender = (clothes.filter(clothing => clothing.isWorn === true).map(clothing => {
       return (
         <div key={clothing._id}>
           <div className="viewClothing mt-5 p-5">
@@ -91,7 +91,7 @@ const Clothes = ({ msgAlert, user, match }) => {
           </div>
         </div>
       )
-    })
+    }))
   }
   return (
     <div className="">
@@ -122,4 +122,4 @@ const Clothes = ({ msgAlert, user, match }) => {
   )
 }
 
-export default withRouter(Clothes)
+export default withRouter(WornClothes)

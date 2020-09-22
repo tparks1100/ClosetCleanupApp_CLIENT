@@ -5,7 +5,7 @@ import styles from './Header.css'
 
 const authenticatedOptions = (
   <Fragment>
-    <Nav.Link href="#clothes">Clothes</Nav.Link>
+    <Nav.Link href="#clothes">My Closet</Nav.Link>
     <Nav.Link href="#new-clothing">New Item</Nav.Link>
     <Nav.Link href="#change-password">Change Password</Nav.Link>
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>

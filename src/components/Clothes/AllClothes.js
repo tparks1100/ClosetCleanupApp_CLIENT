@@ -11,7 +11,7 @@ import styles from '../Header/Header.css'
 import moment from 'moment'
 import Nav from 'react-bootstrap/Nav'
 
-const Clothes = ({ msgAlert, user, match }) => {
+const AllClothes = ({ msgAlert, user, match }) => {
   const [clothes, setClothes] = useState([])
   // const [worn, setWorn] = useState(false)
   const [deleted, setDeleted] = useState(false)
@@ -122,4 +122,4 @@ const Clothes = ({ msgAlert, user, match }) => {
   )
 }
 
-export default withRouter(Clothes)
+export default withRouter(AllClothes)

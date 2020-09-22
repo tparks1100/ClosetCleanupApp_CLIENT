@@ -67,6 +67,7 @@ const CreateClothing = ({ msgAlert, user }) => {
         <h3>Add New Clothing Item</h3>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="todaysDate">
+            <Form.Label>Select Date: </Form.Label> <br />
             <DatePicker
               selected={clothing.todaysDate}
               onChange={handleDateChange}

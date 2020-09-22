@@ -10,7 +10,7 @@ This app is called Closet Cleanup. It is an app that tells you if you need to le
 
 ## Important Links
 
-- [Other Repo](www.link.com)
+- [API Repo](https://github.com/tparks1100/ClosetCleanupApp_API)
 - [Deployed API](www.link.com)
 - [Deployed Client](www.link.com)
 
@@ -28,35 +28,38 @@ There will be different list views that show "Listed Clothing", "Donated Clothin
 
 ### Technologies Used
 
-- jQuery
+- React
 - HTML/CSS
 - Bootstrap
 - Javascript
+- MDB React
+- Moment js
+- DateTracker
 
 ### Catalog of Routes
 
 Verb         |	URI Pattern
 ------------ | -------------
-GET | /resources
-GET | /resources/:id
-POST | /resources
-PATCH | /resources/:id
-DELETE | /resources/:id
+POST | /sign-up
+POST | /sign-in
+DELETE | /sign-out
+PATCH | /change-password
+GET | /clothes
+POST | /clothes
+PATCH | /clothes/:id
+DELETE | /clothes/:id
 
 ### Unsolved Problems
 
-- Still need to ....
-- Would like to eventually ....
+- Still need to calculate number of days between todays date and created date.
+- Would like to style my landing/home page more
 
 ## Images
 
-#### App Screenshot:
-![screenshot](https://media.idownloadblog.com/wp-content/uploads/2017/07/Select-Instagram-story-to-save-to-iPhone.jpeg)
-
----
-
 #### Wireframe:
-![wireframe](https://lucidchart.zendesk.com/hc/article_attachments/360001080866/Facebook_Wireframe_-_New_Page.png)
+![wireframe](https://i.imgur.com/eMi0kj6.jpg)
+![wireframe](https://i.imgur.com/9PnMyQA.jpg)
+![wireframe](https://i.imgur.com/OhUnZND.jpg)
 
 ---
 

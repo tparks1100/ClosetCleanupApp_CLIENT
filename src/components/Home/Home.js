@@ -4,6 +4,16 @@ import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer }
 const Home = () => {
   return (
     <MDBContainer>
+      <div>
+        <h1>Welcome to ClosetCleanup! Your closet organizer app. </h1>
+        <br />
+        <p> Do you ever stare at your closet, and see a bunch of clothes you have not worn in a very long time, or even considered wearing? We all know how hard it is to part ways with clothing that you have so many memories with. This app allows you to add some logic into your decision, and show you how many days it has been since you have last worn an article of clothing!</p>
+        <br />
+        <br />
+        <h4>Sign up, or log in to start organizing!</h4>
+        <br />
+        <br />
+      </div>
       <MDBCarousel
         activeItem={1}
         length={3}

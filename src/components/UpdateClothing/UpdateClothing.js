@@ -25,9 +25,6 @@ const UpdateClothing = ({ msgAlert, user, match }) => {
           const editedClothing = Object.assign({}, res.data.clothing, updatedField)
           return editedClothing
         })
-        console.log('made it here', res.data)
-        // setClothing(res.data.clothing)
-        console.log('made it here too')
       })
       .catch(console.error)
   }, [])
@@ -60,7 +57,6 @@ const UpdateClothing = ({ msgAlert, user, match }) => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    console.log(event)
     updateClothing(user, clothing, match.params.id)
       .then(() => setUpdated({ updated: true }))
       .then(() => msgAlert({

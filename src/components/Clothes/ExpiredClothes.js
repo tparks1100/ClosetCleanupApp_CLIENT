@@ -18,7 +18,6 @@ const ExpiredClothes = ({ msgAlert, user, match }) => {
   useEffect(() => {
     viewClothes(user, clothes)
       .then(res => {
-        console.log(res.data.clothes)
         setClothes(res.data.clothes)
       })
       .catch(console.error)
@@ -47,7 +46,7 @@ const ExpiredClothes = ({ msgAlert, user, match }) => {
   // clothesToRender = (clothes.filter(clothing => clothing.isWorn === true).map(clothing => {
   let clothesToRender
   if (clothes) {
-    clothesToRender = (clothes.filter(clothing => clothing.isWorn === false && clothing.status === 'Pending').map(clothing => {
+    clothesToRender = (clothes.filter(clothing => clothing.isWorn === false && clothing.status === 'Pending' && clothing.isOld).map(clothing => {
       return (
         <div key={clothing._id}>
           <div className="viewClothing mt-5 p-5">

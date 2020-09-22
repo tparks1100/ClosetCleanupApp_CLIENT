@@ -10,7 +10,7 @@ class SignOut extends Component {
 
     signOut(user)
       .finally(() => msgAlert({
-        heading: 'Signed Out Successfully',
+        heading: 'Signed Out Successfully! Come back soon!',
         messagE: messages.signOutSuccess,
         variant: 'success'
       }))

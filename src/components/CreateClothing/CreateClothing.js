@@ -42,7 +42,6 @@ const CreateClothing = ({ msgAlert, user }) => {
   }
   const handleSubmit = event => {
     event.preventDefault()
-    console.log(clothing)
     // const msgAlert = this.props
     createClothing(user, clothing)
       .then(res => setCreatedClothingId(res.data.clothing._id))

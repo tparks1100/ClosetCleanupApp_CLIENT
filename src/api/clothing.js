@@ -34,7 +34,6 @@ export const showClothing = (user, id) => {
 }
 
 export const updateClothing = (user, clothing, id) => {
-  console.log('this is updates id', id)
   return axios({
     url: `${apiUrl}/clothes/${id}`,
     method: 'PATCH',

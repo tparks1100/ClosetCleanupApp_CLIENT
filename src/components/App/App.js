@@ -16,6 +16,7 @@ import WornClothes from '../Clothes/WornClothes'
 import AllClothes from '../Clothes/AllClothes'
 import SellClothes from '../Clothes/SellClothes'
 import ExpiredClothes from '../Clothes/ExpiredClothes'
+import DonateClothes from '../Clothes/DonateClothes'
 
 class App extends Component {
   constructor () {
@@ -74,6 +75,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/clothes-sell' render={() => (
             <SellClothes msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/clothes-donate' render={() => (
+            <DonateClothes msgAlert={this.msgAlert} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/clothes-expired' render={() => (
             <ExpiredClothes msgAlert={this.msgAlert} user={user} />

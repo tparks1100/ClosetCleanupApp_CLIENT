@@ -18,7 +18,6 @@ const Clothes = ({ msgAlert, user, match }) => {
   useEffect(() => {
     viewClothes(user, clothes)
       .then(res => {
-        console.log(res.data.clothes)
         setClothes(res.data.clothes)
       })
       .catch(console.error)
@@ -43,8 +42,6 @@ const Clothes = ({ msgAlert, user, match }) => {
         variant: 'danger'
       }))
   }
-  // Create a function that filters for different views of clothes
-  // clothesToRender = (clothes.filter(clothing => clothing.isWorn === true).map(clothing => {
   let clothesToRender
   if (clothes) {
     clothesToRender = clothes.map(clothing => {
@@ -107,7 +104,7 @@ const Clothes = ({ msgAlert, user, match }) => {
             <Nav.Link href="#clothes-sell">Sell</Nav.Link>
           </MDBNavItem>
           <MDBNavItem>
-            <Nav.Link href="#">Donate</Nav.Link>
+            <Nav.Link href="#clothes-donate">Donate</Nav.Link>
           </MDBNavItem>
           <MDBNavItem>
             <Nav.Link href="#clothes-expired">Expired</Nav.Link>

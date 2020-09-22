@@ -18,7 +18,6 @@ const AllClothes = ({ msgAlert, user, match }) => {
   useEffect(() => {
     viewClothes(user, clothes)
       .then(res => {
-        console.log(res.data.clothes)
         setClothes(res.data.clothes)
       })
       .catch(console.error)
@@ -107,7 +106,7 @@ const AllClothes = ({ msgAlert, user, match }) => {
             <Nav.Link href="#clothes-sell">Sell</Nav.Link>
           </MDBNavItem>
           <MDBNavItem>
-            <Nav.Link href="#">Donate</Nav.Link>
+            <Nav.Link href="#clothes-donate">Donate</Nav.Link>
           </MDBNavItem>
           <MDBNavItem>
             <Nav.Link href="#clothes-expired">Expired</Nav.Link>

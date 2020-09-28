@@ -1,5 +1,12 @@
 :local(.homeStyles) {
+  background-color: #f6f6f6;
   color: #625261;
   font-family: 'Peddana', serif;
+  margin-bottom: 40px;
   text-align: center;
 }
+
+/* p {
+  background-color: #f6f6f6;
+  background-color: #d9adad;
+} */
